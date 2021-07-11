@@ -93,7 +93,7 @@ public class ImageControllerTest {
         when(recipeService.findCommandById(anyLong())).thenReturn(command);
 
         //when
-        MockHttpServletResponse response = mockMvc.perform(get("/recipe/1/recipeImage"))
+        MockHttpServletResponse response = mockMvc.perform(get("/recipe/1/recipeimage"))
                 .andExpect(status().isOk())
                 .andReturn().getResponse();
 
@@ -105,7 +105,7 @@ public class ImageControllerTest {
     @Test
     public void testGetRecipeNumberFormatException() throws Exception {
 
-        mockMvc.perform(get("/recipe/sdf/recipeImage"))
+        mockMvc.perform(get("/recipe/sdf/recipeimage"))
                 .andExpect(status().isBadRequest())
                 .andExpect(view().name("400Error"));
     }
